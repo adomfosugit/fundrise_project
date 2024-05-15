@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button';
 
 import { urlFor } from '@/lib/client';
 import Link from 'next/link';
-type Props = {
+export type Props = {
     productDetails: {
         name:string;
         price:number;

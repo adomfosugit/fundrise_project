@@ -1,22 +1,87 @@
 import Bento1 from '@/components/Bento1'
+import { client } from '@/lib/client'
 import React from 'react'
 
-const namesAndAges = [
-  { name: 'Alice', age: 30 },
-  { name: 'Bob', age: 25 },
-  { name: 'Charlie', age: 35 },
-  { name: 'David', age: 28 },
-  { name: 'Eve', age: 32 },
-  { name: 'Frank', age: 22 },
-]
+import Authname from '@/components/Authname';
 
-// Dashboard stuff  transactions investments 
-const Page = () => {
-  return (
-    <div className="max-w-4xl mx-auto h-screen mt-12 z-0 ">
+import { currentUser } from '@clerk/nextjs/server';
+import CardLister from '@/components/ui/CardLister';
+import ChartExample from '@/components/Chartexample';
+
+
+
+
+
+async function getData1() {
+  const user = await currentUser();
+  //@ts-ignore
+  const emailAddresses = user.emailAddresses.map(address => address.emailAddress);
+
+  if (emailAddresses.length === 0) {
+    throw new Error('No email addresses found for the user');
+  }
+
+  const email = emailAddresses[0];
+  
+  const data = await client.fetch(
+    `(*[_type == "usersData" && email == "${email}"])`,
+    {},
+    {
       
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 ">
-        <h1>Hello</h1>
+      
+      next: {tags: ['usersData']},
+    },
+  )
+
+
+  return data
+}
+// Dashboard stuff  transactions investments 
+const Page = async() => {
+  const data =  await getData1()
+  const investments = data[0].investments;
+
+  console.log(investments);
+
+  return (
+    <div className=" w-full h-screen  z-0  ">
+     
+      <div className=" flex-col h-screen m-5">
+        <div className='mb-4 h-16'>
+          <div className='flex items-center gap-x-3'>
+          
+            <h1 className='font-bold text-[30px] tracking-[3px] text-primary'>Welcome</h1>
+            <Authname />
+            </div>
+        </div>
+        <div className='h-1/2   flex flex-col md:flex-row  space-x-2 gap-y-3'>
+          <div className='w-full md:w-1/2'>
+            <ChartExample />
+  </div> 
+          <div>
+            <h1 className='font-bold text-[30px] text-primary'>Investments</h1>
+            <div className='flex  text-lg bg-green-50 p-7 ring-2 ring-primary mt-4 items-center'>
+              {/*@ts-ignore*/}
+            {data.map((list)=> (
+             <div key={list._id} className='mr-5' >
+
+              <p className='text-primary font-bold'>Investment Holder</p>
+               <p className='font-semibold tracking-wide'>{list.name} </p>
+
+             
+             </div>
+    
+           ))}
+           {/* @ts-ignore */}
+           {investments.map((inv)=>(
+            <CardLister key={inv._key} name={inv.current}/>
+           ))}
+           
+            </div>
+           
+          </div>
+        </div>
+        
       </div>
     </div>
   )

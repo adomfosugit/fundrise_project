@@ -21,7 +21,7 @@ const LeftSidebar = () => {
     
   return (
     
-    <nav className='hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] shadow-2xl min-h-screen  '>
+    <nav className='hidden shadow-2xl md:flex px-6 py-10 flex-col justify-between min-w-[270px] min-h-screen  top-0  '>
         <div className='flex flex-col gap-11 '>
             <Link href = '/' className='flex gap-3 items-center m-3 content-center mx-auto'>
 

@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import {Card,CardContent, CardFooter,} from "@/components/ui/card"
+import {Card,CardContent,CardFooter} from "@/components/ui/card"
 import { Carousel,CarouselContent,CarouselNext,CarouselPrevious,} from "@/components/ui/carousel"
 import { Button } from '@/components/ui/button';
 import { urlFor } from '@/lib/client';
@@ -15,8 +15,8 @@ const Listings = ({productDetails}: any) => {
 
     
     const pathname = usePathname()
-    const {name,price,Spaceavailable,roomtype,image} = productDetails;
-    const { isSignedIn, user, isLoaded } = useUser();
+    const {name,price,image,marketvalue,Liquidity,description,availableslots} = productDetails;
+    const {isSignedIn,user,isLoaded} = useUser();
 
     
     const router = useRouter()
@@ -42,11 +42,7 @@ const Listings = ({productDetails}: any) => {
             variable_name:'Name',
             value: `${name}`
           },
-          {
-            display_name:'Hostel Name',
-            variable_name:'Name',
-            value: `${roomtype}`
-          },
+        
          
         ]
       }
@@ -79,9 +75,9 @@ const Listings = ({productDetails}: any) => {
   };
   
   return (
-    <div className='flex flex-col md:flex-row p-3 gap-x-2 bg-red-300' >
-        <div>
-        <Card className='w-full md:w-1/2 relative mx-auto '>
+    <div className=' flex flex-col md:flex-row p-3 gap-x-2  px-1 md:px-20' >
+        <div className='ring-2 ring-primary mb-1'>
+        <Card className='w-full   mx-auto '>
   
   <CardContent className='w-full'>
   <Carousel className='pt-3' >
@@ -110,11 +106,34 @@ const Listings = ({productDetails}: any) => {
         <div>
         <Card className='w-full  md:w-[700px] mx-auto '>
   
-              <CardContent className='w-full'>
-              Property Description 
+              <CardContent className='w-full content-center text-center  mr-3mx-auto items-center mt-3'>
+              <div className='flex items-center '>
+                <p className='font-bold text-lg mr-3'>Location:</p>
+                <p className='text-lg'>{name}</p>
+                </div>
+              <div className='flex items-center'>
+                <p className='font-bold text-lg mr-3'>Price:</p>
+                <p className='text-lg'>{price}</p>
+                </div>
+              <div className='flex items-center'>
+                <p className='font-bold text-lg mr-3'>Market Value:</p>
+                <p className='text-lg'>{marketvalue}</p>
+                </div>
+              <div className='flex items-center'>
+                <p className='font-bold text-lg mr-3'>Liquidity:</p>
+                <p className='text-lg'>{Liquidity}</p>
+                </div>
+              <div className='flex items-center'>
+                <p className='font-bold text-lg mr-3'>Description:</p>
+                <p className='text-lg'>{description}</p>
+                </div>
+              <div className='flex items-center'>
+                <p className='font-bold text-lg mr-3'>Available Slots :</p>
+                <p className='text-lg'>{availableslots}</p>
+                </div>
               </CardContent>
      
-              <Button className='w-full mt-9'>
+              <Button className='w-full mt-1 rounded-none'>
                   <PaystackHookExample />
               </Button> 
               
