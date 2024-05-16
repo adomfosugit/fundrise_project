@@ -7,10 +7,11 @@ async function getData() {
   const data = await client.fetch(
     `(*[_type == "propertyData"])`,
     {},
+
     {
       // You can set any of the `cache` and `next` options as you would on a standard `fetch` call
       
-      next: {tags: ['propertyData']},
+      next: {revalidate:0},
     },
   )
 
@@ -22,7 +23,7 @@ const page = async() => {
   console.log(data)
   return (
     <div className='flex justify-center max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4'>
-    <div className='pt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8'>
+    <div className='pt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 space-x-3'>
       {/* @ts-ignore */}
     {data.map((list)=> (
     <CardList key={list._id} productDetails={list} />

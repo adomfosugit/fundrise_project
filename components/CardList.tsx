@@ -61,7 +61,7 @@ const CardList = ({productDetails}: any) => {
         </div>
         <div className='flex gap-2'>
         <p className='text-sky-900 font-bold'>Price</p>
-        <p>GHC {price}</p>
+        <p>{price}</p>
         </div>
         <div className='flex gap-2'>
         <p className='text-sky-900 font-bold'>Slots</p>
