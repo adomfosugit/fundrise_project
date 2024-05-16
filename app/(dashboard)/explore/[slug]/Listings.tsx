@@ -3,29 +3,24 @@ import React from 'react'
 import {Card,CardContent,CardFooter} from "@/components/ui/card"
 import { Carousel,CarouselContent,CarouselNext,CarouselPrevious,} from "@/components/ui/carousel"
 import { Button } from '@/components/ui/button';
-import { urlFor } from '@/lib/client';
+import { client, urlFor } from '@/lib/client';
 import { usePaystackPayment } from 'react-paystack';
 import { useRouter } from 'next/navigation'
 import { useUser } from "@clerk/nextjs";
-import { usePathname } from 'next/navigation'
 
-type Props = {}
+
 
 const Listings = ({productDetails}: any) => {
 
     
-    const pathname = usePathname()
-    const {name,price,image,marketvalue,Liquidity,description,availableslots} = productDetails;
+    
+    const {name,price,image,marketvalue,Liquidity,description,availableslots,slug} = productDetails;
     const {isSignedIn,user,isLoaded} = useUser();
 
     
     const router = useRouter()
     
-    const handleLoginClick = () => {
-        // Save the current pathname to local storage before redirecting to login
-        localStorage.setItem('redirectPath', pathname);
-        router.push('/sign-in');
-      };
+   
     const config = {
       reference: (new Date()).getTime(),
       username: `${user?.fullName}`,
@@ -38,7 +33,7 @@ const Listings = ({productDetails}: any) => {
         "custom_fields":[
           
           {
-            display_name:'PropertyNameName',
+            display_name:'PropertyName',
             variable_name:'Name',
             value: `${name}`
           },
@@ -51,8 +46,19 @@ const Listings = ({productDetails}: any) => {
   // you can call this function anything
   const onSuccess = (reference:number) => {
     // Implementation for whatever you want to do with reference and after success call.
-    router.push('/explore')
-    console.log(reference);
+    const doc = {
+      _type:'usersData',
+      name:`${name}`,
+      email:'adomfosu2000@gmail.com',
+      investments:'banana'
+    
+      
+
+    }
+    client.create(doc)
+    
+    router.push('/main')
+    console.log(doc);
   };
   
   // you can call this function anything

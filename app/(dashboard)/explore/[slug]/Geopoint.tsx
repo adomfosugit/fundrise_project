@@ -49,7 +49,7 @@ const Geopoint = ({productDetails}: any) => {
   }, []);
 
     const {coordinates} = productDetails; 
-    console.log(coordinates)
+    
     
 
     

@@ -26,26 +26,24 @@ const MobileNav = () => {
     <MenubarTrigger>
     <IoMdMenu size={30} />
     </MenubarTrigger>
-    <MenubarContent>
+    <MenubarContent className='flex-col content-center text-center'>
+    <UserButton /> 
     <ul className='flex flex-col gap-6'>
                 {sidebarLinks.map((link : { imgURL: string, route: string, label: string}) => {
                         return(
-                            <MenubarItem key={link.label} className='text-center'>
                                 <Link href={link.route}>
+                            <MenubarItem key={link.label} className='text-center'>
                                     
                                     <p>{link.label}</p>
-                                    </Link>
  
                             </MenubarItem>
+                                    </Link>
                         )
                 })}
             </ul>
             <MenubarSeparator />
 
-            <MenubarItem className='flex'>
-
-            <UserButton /> 
-            </MenubarItem>
+            
     </MenubarContent>
   </MenubarMenu>
 </Menubar>

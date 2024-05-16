@@ -5,12 +5,7 @@ export const sidebarLinks = [
     route: "/explore",
     label: "Explore",
   },
-  {
-    imgURL: "/assets/icons/people.svg",
-    route: "/new-deals",
-    label: "New Deals",
-  },
-
+ 
   {
     imgURL: "/assets/icons/gallery-add.svg",
     route: "/main",
@@ -29,11 +24,7 @@ export const bottombarLinks = [
     route: "/explore",
     label: "Explore",
   },
-  {
-    imgURL: "/assets/icons/bookmark.svg",
-    route: "/new-deals",
-    label: "New Deals",
-  },
+
   {
     imgURL: "/assets/icons/gallery-add.svg",
     route: "/main",

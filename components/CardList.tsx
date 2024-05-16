@@ -31,7 +31,7 @@ export type Props = {
 
 const CardList = ({productDetails}: any) => {
   console.log(productDetails)
-  const {name,price,image} = productDetails;
+  const {name,price,image,location, availableslots} = productDetails;
   return (
     <Card className='w-[300px] md:w-[250px] relative'>
   
@@ -55,7 +55,8 @@ const CardList = ({productDetails}: any) => {
        <div className='mt-2'>
         <h1 className='font-bold text-xl'>{name}</h1>
         <div className='flex gap-2'>
-        <p className='text-sky-900 font-bold'>Room Type</p>
+        <p className='text-sky-900 font-bold'>Location</p>
+        <p>{location}</p>
         
         </div>
         <div className='flex gap-2'>
@@ -63,14 +64,15 @@ const CardList = ({productDetails}: any) => {
         <p>GHC {price}</p>
         </div>
         <div className='flex gap-2'>
-        <p className='text-sky-900 font-bold'>Beds Available</p>
+        <p className='text-sky-900 font-bold'>Slots</p>
+        <p>{availableslots}</p>
         
         </div>
 
        </div>
        <div className='flex flex-col gap-y-2 mt-2'>
         <Link href= {`/explore/${productDetails.slug.current}`}>
-          <Button>Book</Button>
+          <Button>Details</Button>
         </Link>
       
 
