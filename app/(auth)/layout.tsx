@@ -22,7 +22,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang='en'>
         <body className={`${inter.className}`}>
-            <div className=" flex content-center justify-center items-center min-h-screen bg-[url('/dubai.jpg')] bg-contain">
+            <div className=" flex content-center justify-center items-center min-h-screen">
               {children}
             </div>
             </body>

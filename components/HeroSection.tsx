@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const HeroSection = () => {
   return (
-    <div className=' rounded-sm shadow-xl h-[600px] p-4 ring-2 ring-[#3FB152] flex gap-x-2'>
+    <div className=' rounded-sm shadow-xl h-[600px] p-4 ring-2 ring-primary flex gap-x-2'>
         <div className='w-1/2 space-y-2 flex-1'>
             <div className='h-1/4 rounded-2xl'>
                 <Bento1/>

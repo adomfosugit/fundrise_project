@@ -14,7 +14,7 @@ const Topbar = () => {
             <Button>Sign In</Button>
             </Link>
             <Link href= '/sign-up'>
-            <Button variant={'outline'} className='ring-2  ring-[#3FB152] text-[#3FB152]'>Get Started</Button>
+            <Button variant={'outline'} className='ring-2  ring-[#E94908] text-[#E94908]'>Get Started</Button>
             </Link>
         </div>
     </nav>

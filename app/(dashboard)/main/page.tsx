@@ -70,13 +70,13 @@ const Page = async () => {
           </div>
         </div>
 
-        <div className="h-1/2 flex flex-col md:flex-row space-x-2 gap-y-3">
-          <div className="w-full md:w-1/2">
+        <div className="h-screen flex flex-col md:flex-row  space-x-2 gap-y-3">
+          <div className="w-full  h-1/2 ">
             <ChartExample />
           </div>
           <div>
             <h1 className="font-bold text-[30px] text-primary">Investments</h1>
-            <div className="flex text-lg bg-green-50 p-7 ring-2 ring-primary mt-4 items-center">
+            <div className="flex text-lg bg-green-50 p-7 ring-2 ring-primary mt-4 items-center w-3/4 md:w-[400px]">
               {data.map((list) => (
                 <div key={list._id} className="mr-5">
                   <p className="text-primary font-bold">Investment Holder</p>

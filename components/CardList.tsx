@@ -33,11 +33,11 @@ const CardList = ({productDetails}: any) => {
   console.log(productDetails)
   const {name,price,image,location, availableslots} = productDetails;
   return (
-    <Card className='w-[300px] md:w-[250px] relative'>
+    <Card className='w-[320px] md:w-[350px] relative m-3 ring-2 ring-primary'>
   
-    <CardContent className='w-full'>
+    <CardContent className='w-full h-[200px]'>
     <Carousel >
-      <CarouselContent>
+      <CarouselContent className='mt-2'>
       
       {image.map((img:any)=>(
 
@@ -55,16 +55,16 @@ const CardList = ({productDetails}: any) => {
        <div className='mt-2'>
         <h1 className='font-bold text-xl'>{name}</h1>
         <div className='flex gap-2'>
-        <p className='text-sky-900 font-bold'>Location</p>
+        <p className='text-primary font-bold'>Location</p>
         <p>{location}</p>
         
         </div>
         <div className='flex gap-2'>
-        <p className='text-sky-900 font-bold'>Price</p>
+        <p className='text-primary font-bold'>Price</p>
         <p>{price}</p>
         </div>
         <div className='flex gap-2'>
-        <p className='text-sky-900 font-bold'>Slots</p>
+        <p className='text-primary font-bold'>Slots</p>
         <p>{availableslots}</p>
         
         </div>

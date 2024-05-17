@@ -30,7 +30,7 @@ export default function RootLayout({
         <LeftSidebar />
 
         </div>
-         <section className="h-full flex " >
+         <section className="h-full flex w-full " >
             {children}
          </section>
      
