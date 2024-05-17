@@ -28,8 +28,10 @@ const LeftSidebar = () => {
                 <Logo />
             </Link>
 <div className='text-center'>
-
-                <UserButton showName  />
+           
+                
+                <UserButton />
+            
                 
 
 </div>

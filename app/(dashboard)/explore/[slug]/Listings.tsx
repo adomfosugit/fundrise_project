@@ -15,7 +15,7 @@ const Listings = ({productDetails}: any) => {
     
     
     const {name,price,image,marketvalue,Liquidity,description,availableslots,slug} = productDetails;
-    const {isSignedIn,user,isLoaded} = useUser();
+    const {user} = useUser();
 
     
     const router = useRouter()
@@ -25,7 +25,7 @@ const Listings = ({productDetails}: any) => {
       reference: (new Date()).getTime(),
       username: `${user?.fullName}`,
       email: `${user?.emailAddresses}`,
-      amount: `${price * 100}`,
+      amount: `${price * 100}/`,
       //publicKey: 'pk_live_7b0117b105694184900ff75ce52987cae7c1b04f',
       publicKey: 'pk_test_1156b935d863b0c6d92a19b3678d034562cf062a',
       currency: 'GHS',

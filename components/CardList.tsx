@@ -41,7 +41,7 @@ const CardList = ({productDetails}: any) => {
       
       {image.map((img:any)=>(
 
-        <Image src={urlFor(img).width(300).height(200).url()} alt='hotel pic' width={300} height={100} key={img._key} priority/>
+        <Image src={urlFor(img).url()} alt='hotel pic' width={300} height={200} key={img._key} priority/>
  ))}  
          
       </CarouselContent >
