@@ -8,11 +8,11 @@ import Image from 'next/image'
 
 const Bento3 = () => {
   return (
-    <Card className='h-full shadow-xl'>
+    <Card className='h-full rounded-none border-none shadow-none'>
   
-    <div className='flex w-full h-full bg-red-200'>
+    <div className='flex w-full h-full'>
 
-      <Image src= '/investme.jpg' alt='picture' width={200} height={200} className='w-full h-full'/> 
+      <img src= '/hero.png' alt='picture'  className='w-full h-full'/> 
     </div>
   
   </Card>

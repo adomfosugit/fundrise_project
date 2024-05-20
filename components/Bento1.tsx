@@ -11,10 +11,11 @@ import {
 
 const Bento1 = () => {
   return (
-    <Card className='h-full shadow-xl '>
+    <Card className='h-full border-none shadow-none  '>
    
     <CardContent className='items-center w-3/4 mx-auto mt-6 '>
-      <p className='font-extrabold text-[30px] text-primary'>Beyond Stocks & Bonds</p>
+      <p className='font-extrabold text-[30px] md:text-[70px]'>Invest in Your Future with Premier Real Estate Opportunities</p>
+      <p className='font-light text-[20px] md:text-[30px] '>Unlock High Returns with Secure and Smart Property Investments</p>
     </CardContent>
    
   </Card>

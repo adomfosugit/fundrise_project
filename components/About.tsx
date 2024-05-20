@@ -2,23 +2,20 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div className='bg-primary mt-12 flex-col p-5'>
-        <div className='max-w-4xl items-center mx-auto '>
+    <div className='bg-gray-800 mt-12 flex-col p-14'>
+        <div className='max-w-6xl items-center mx-auto '>
 
-        <div>
-            <h1 className='font-bold text-white text-center text-2xl'>
-            Who We Are
-            </h1>
-     </div>
         <div className='text-center text-white '>
-            <p>
-            We're revolutionizing property investing by making it accessible, transparent, and impactful.  We're not your grandfather's real estate mogul club. We're for:
-The Busy Professional: You value your time and expertise. We handle the property management, so you can focus on what matters most.
-The Forward-Thinker: You want to diversify your portfolio with alternative investments that offer passive income potential.
-The Impact Investor: You believe your money can make a difference. We invest in properties that revitalize communities and create a positive social impact.
-The Tech-Savvy Investor: You want a user-friendly platform with data-driven insights to make informed investment decisions.
-The Everyday Investor: You don't need a million dollars to get started. Our low investment minimums open the door to property ownership.
-We're building a future where everyone can benefit from the power of property investment.  Join the movement. 
+            <p className='text-[20px] '>
+            Tired of the traditional, time-consuming
+             route to property investment? We're here to revolutionize the game. 
+             Our platform makes investing accessible, transparent, and impactful for everyone.
+               Busy professionals can focus on their careers while we manage the properties.
+                Forward-thinkers can diversify their portfolios with passive income potential. 
+                Impact investors can feel good knowing their money revitalizes communities. 
+                Tech-savvy users will love our data-driven platform, and everyone benefits from 
+                our low investment minimums.  Join the movement and unlock the power of property 
+                investing in a whole new way.
             </p>
         </div>
         </div>

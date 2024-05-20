@@ -7,24 +7,22 @@ import Link from 'next/link'
 
 const HeroSection = () => {
   return (
-    <div className=' rounded-sm shadow-xl h-[600px] p-4 ring-2 ring-primary flex gap-x-2'>
-        <div className='w-1/2 space-y-2 flex-1'>
-            <div className='h-1/4 rounded-2xl'>
+    <div className=' flex h-full p-4  flex-col  md:flex-row  '>
+        <div className='w-full'>
+            <div className='mt-6 md:mt-3 content-center'>
                 <Bento1/>
             </div>
-            <div className='h-1/2 rounded-2xl'>
-                <Bento2 />
-            </div>
-            <div className='text-center'>
+           
+            <div className='text-center w-full'>
                 <Link href='/sign-up'>
                 
-                <Button className='mt-5'>Get Started</Button>
+                <Button className='mt-5 mb-2 w-full p-8 font-bold text-[20px] md:w-[200px]'>Sign Up</Button>
                 </Link>
             </div>
         
         
         </div>
-        <div  className='hidden md:block w-1/2  rounded-2xl'>
+        <div  className=' w-full'>
             <Bento3 />
         </div>
     </div>

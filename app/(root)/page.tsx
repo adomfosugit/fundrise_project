@@ -1,17 +1,36 @@
 import About from "@/components/About";
 import HeroSection from "@/components/HeroSection";
-import { Button } from "@/components/ui/button";
+import Portfolios from "@/components/Portfolios";
+import { infocards } from "@/constants";
 
 
 export default function Home() {
   return (
     <section>
-    <div className="mt-12 max-w-4xl mx-auto ">
+    <div className="mt-12 max-w-8xl mx-auto ">
     <HeroSection />
    </div>
    <div>
 
     <About />
+   
+<div>
+{infocards.map((list)=> (
+      <div  key={list.id} className="h-[700px]" >
+         <Portfolios 
+         cardTitle= {list.cardTitle}
+         subtitle = {list.subtitle}
+         imgURL = {list.imgURL}
+         writeup= {list.writeup}
+         
+         />
+      </div>
+    ))}
+   
+    
+
+</div>
+ 
    </div>
     </section>
   
