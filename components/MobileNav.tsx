@@ -18,7 +18,7 @@ import { IoMdMenu } from 'react-icons/io'
 const MobileNav = () => {
   
   return (
-    <div className='md:hidden top-0   p-2 shadow-lg flex items-center justify-between z-50'>
+    <div className=' fixed w-full bg-white md:hidden top-0 p-2 shadow-lg flex items-center justify-between z-10 '>
       <div><Logo /></div>
       <div>
       <Menubar>

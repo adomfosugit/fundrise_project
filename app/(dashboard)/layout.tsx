@@ -24,13 +24,13 @@ export default function RootLayout({
 
     <html lang="en">
       <body className={inter.className}>
-       <div className = 'w-full md:flex '>
+       <div className = 'w-full md:flex  bg-gray-50'>
         <div>
         <MobileNav />
         <LeftSidebar />
 
         </div>
-         <section className="h-full flex w-full " >
+         <section className="h-full flex w-full" >
             {children}
          </section>
      

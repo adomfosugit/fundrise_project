@@ -60,7 +60,7 @@ const Geopoint = ({productDetails}: any) => {
   return (
   
       <div ref={mapContainer}
-      style={{height:'600px', }} />
+      style={{height:'400px', }} />
 
   
       

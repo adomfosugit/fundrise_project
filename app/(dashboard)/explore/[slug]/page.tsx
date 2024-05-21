@@ -2,6 +2,7 @@ import { client } from "@/lib/client";
 
 import Listings from "./Listings";
 import Geopoint from "./Geopoint";
+import ChartExample from "@/components/Chartexample";
 
 
 interface GetDataParams {
@@ -26,9 +27,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
         <Listings productDetails={ products}/> 
         </div>
-<div>
+<div className="flex flex-col md:flex-row md:px-20">
+  <div className="w-full md:w-1/2">
 
          <Geopoint productDetails={ products}/>
+  </div>
+  <div className="w-full md:w-1/2">
+        <ChartExample />
+  </div>
+
+       
 </div>
         </div>
         )
