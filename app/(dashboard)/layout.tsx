@@ -6,6 +6,7 @@ import Bottombar from "@/components/Bottombar";
 import { ClerkProvider } from "@clerk/nextjs";
 import MobileNav from "@/components/MobileNav";
 import 'mapbox-gl/dist/mapbox-gl.css'
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
 
         </div>
          <section className="h-full flex w-full" >
+            <Toaster />
             {children}
          </section>
      

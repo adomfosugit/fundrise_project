@@ -1,14 +1,16 @@
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react'
 type info = {
   cardTitle:string;
   imgURL: string;
   subtitle: string;
   writeup: string;
+  route:string;
 }
 
 
-const Portfolios = ({cardTitle, imgURL,subtitle,writeup}: info) => {
+const Portfolios = ({cardTitle, imgURL,subtitle,writeup,route}: info) => {
   
   return (
     <section className='max-w-7xl mx-auto  mb-5'>
@@ -22,6 +24,10 @@ const Portfolios = ({cardTitle, imgURL,subtitle,writeup}: info) => {
             <p className="text-sm mb-2">{cardTitle}</p>
             <h3 className="text-2xl font-bold">{subtitle}</h3>
             <p className="text-sm md:text:lg  sm:text-lg leading-relaxed">{writeup}</p>
+
+            <Link href= {`route`} className='text-primary text-light text-lg'>
+              View details
+            </Link>
            
           </div>
 

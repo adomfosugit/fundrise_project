@@ -1,85 +1,76 @@
 'use client'
 import React from 'react'
-import {Card,CardContent,CardFooter} from "@/components/ui/card"
+import {Card,CardContent} from "@/components/ui/card"
 import { Carousel,CarouselContent,CarouselNext,CarouselPrevious,} from "@/components/ui/carousel"
-import { Button } from '@/components/ui/button';
-import { client, urlFor } from '@/lib/client';
-import { usePaystackPayment } from 'react-paystack';
-import { useRouter } from 'next/navigation'
-import { useUser } from "@clerk/nextjs";
+import { urlFor } from '@/lib/client';
+import emailjs from '@emailjs/browser';
+import { toast } from "@/components/ui/use-toast"
+import { ToastAction } from '@/components/ui/toast';
+import { useUser } from '@clerk/nextjs';
+
+const Id = () => {
+  return Date.now().toString();
+};
 
 
+const pay = (slots:number,price:number) => {
+  return (price/slots).toFixed(2)
+};
+ 
 
-const Listings = ({productDetails}: any) => {
 
-    
-    
-    const {name,price,image,marketvalue,Liquidity,description,availableslots,slug} = productDetails;
-    const {user} = useUser();
-
-    
-    const router = useRouter()
-    
+const PaystackHookExample = ({slots,price}: {
+  slots:number;
+  price:number;
+}) => {
+  const { user} = useUser(); 
+  const handleSubmit =  () => {
+    try {
    
-    const config = {
-      reference: (new Date()).getTime(),
-      username: `${user?.fullName}`,
-      email: `${user?.emailAddresses}`,
-      amount: `${price * 100}`,
-      //publicKey: 'pk_live_7b0117b105694184900ff75ce52987cae7c1b04f',
-      publicKey: 'pk_test_1156b935d863b0c6d92a19b3678d034562cf062a',
-      currency: 'GHS',
-      metadata:{
-        "custom_fields":[
-          
-          {
-            display_name:'PropertyName',
-            variable_name:'Name',
-            value: `${name}`
-          },
-        
-         
-        ]
-      }
-  };
-   
-  // you can call this function anything
-  const onSuccess = (reference:number) => {
-    // Implementation for whatever you want to do with reference and after success call.
-    const doc = {
-      _type:'usersData',
-      name:`${name}`,
-      email:'adomfosu2000@gmail.com',
-      investments:'banana'
-    
-      
-
-    }
-    client.create(doc)
-    
-    router.push('/main')
-    console.log(doc);
-  };
   
-  // you can call this function anything
-  const onClose = () => {
-    // implementation for  whatever you want to do when the Paystack dialog closed.
-    console.log('closed')
-  }
-  
-  const PaystackHookExample = () => {
-    //@ts-ignore
-      const initializePayment = usePaystackPayment(config);
-      return (
-        <div className='btn-container'>
-            <button  type = 'button' className='btn' onClick={() => {
-                //@ts-ignore
-                initializePayment(onSuccess, onClose)
-            }}>Invest </button>
-        </div>
+     emailjs.send(
+        'service_0zsomz6',
+        'template_3c00wb7',
+        {
+          from_name: "Kamsol Trustee",
+          to_name: `${user?.fullName}`,
+          email: 'adomfosugit@gmail.com',
+          to_email: `${user?.primaryEmailAddress}`,
+          message: `Pay GHC ${pay(slots,price)} to our Bank account xxxxxxxxx with reference ${Id()}`,
+        },
+        'JRIwRiuqHOrgTy_Mg'
       );
-  };
   
+      // Render a toast notification on successful email send
+      toast({
+        variant: "default",
+        title: "Successful",
+        description: "Please check your email for payment proceedings.",
+        className: 'bg-primary text-white'
+      });
+    } catch (error) {
+      // Handle errors (e.g., log the error, show an error toast, etc.)
+      console.log('Error sending email:', error);
+      toast({
+        variant: "destructive",
+        title: " Something went wrong.",
+        description: "There was a problem with your request.",
+        action: <ToastAction altText="Try again">Try again</ToastAction>,
+      });
+    }
+  };
+  return (
+    <div className='btn-container'>
+    <button className='w-full mt-1 rounded-none bg-primary p-4 text-white text-lg font-semibold tracking-wide' onClick={handleSubmit}>
+        Invest
+      </button>
+    </div>
+  );
+};
+const Listings = ({productDetails}: any) => {
+     
+const {name,price,image,marketvalue,Liquidity,description,availableslots} = productDetails;
+
   return (
     <div className=' flex flex-col md:flex-row p-3 gap-x-2  px-1 md:px-20' >
         <div className='ring-2 ring-primary mb-1'>
@@ -139,10 +130,9 @@ const Listings = ({productDetails}: any) => {
                 </div>
               </CardContent>
      
-              <Button className='w-full mt-1 rounded-none'>
-                  <PaystackHookExample />
-              </Button> 
               
+                  <PaystackHookExample  slots = {availableslots} price = {price}/>
+                     
 
 
             </Card>

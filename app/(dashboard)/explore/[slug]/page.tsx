@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     const products = (await getData({params: {path:params.slug}})) 
   console.log(products)
     return(
-        <div className="flex-col   justify-between  w-full h-screen ">
+        <div className="flex-col  justify-between  w-full h-screen ">
         <div>
 
         <Listings productDetails={ products}/> 

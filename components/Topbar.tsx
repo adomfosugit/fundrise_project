@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from './ui/button'
 import Logo from './Logo'
 import Link from 'next/link'
+import MiniMenu from './MiniMenu'
 
 const Topbar = () => {
   return (
@@ -17,6 +18,7 @@ const Topbar = () => {
             <Button variant={'outline'} className='ring-2  ring-[#E94908] text-[#E94908]'>Get Started</Button>
             </Link>
         </div>
+     
     </nav>
   )
 }
