@@ -21,6 +21,7 @@ export default function Home() {
          cardTitle= {list.cardTitle}
          subtitle = {list.subtitle}
          imgURL = {list.imgURL}
+         route = {list.route}
          writeup= {list.writeup}
          
          />

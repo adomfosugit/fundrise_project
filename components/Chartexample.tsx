@@ -8,13 +8,26 @@ ChartJS.register(
 
 // React Chart Component
 const ChartExample = () => {
- const options = {}
+ const options = {
+
+ }
  const chartdata = {
-  labels:[1,2,3,4,5,6,7,8,9,10],
+  labels:[
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+  
+  ],
  
  datasets:[
   {
-    label:'years',
+    label:'Months',
     data:[1000,2000,1500,2000,5000,2500,3000,2400,1400,2000],
     borderColor:'#E94908'
   }

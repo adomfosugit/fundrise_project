@@ -29,13 +29,12 @@ const PaystackHookExample = ({slots,price}: {
    
   
      emailjs.send(
-        'service_0zsomz6',
+        'service_ajgijg9',
         'template_3c00wb7',
         {
           from_name: "Kamsol Trustee",
-          to_name: `${user?.fullName}`,
-          email: 'adomfosugit@gmail.com',
-          to_email: `${user?.primaryEmailAddress}`,
+          to_name: `${user?.firstName}`,
+          email: `${user?.primaryEmailAddress}`,
           message: `Pay GHC ${pay(slots,price)} to our Bank account xxxxxxxxx with reference ${Id()}`,
         },
         'JRIwRiuqHOrgTy_Mg'
