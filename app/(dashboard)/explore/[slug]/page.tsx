@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
          <Geopoint productDetails={ products}/>
   </div>
   <div className="w-full md:w-1/2">
-        <ChartExample />
+        <ChartExample productDetails = {products} />
   </div>
 
        

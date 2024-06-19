@@ -61,7 +61,7 @@ const Page = async () => {
   const investments = data[0].investments;
 
   return (
-    <div className="w-full h-screen z-0">
+    <div className="w-full max-w-4xl mx-auto h-screen z-0 ">
       <div className="flex-col h-screen m-5">
         <div className="mb-4 h-16">
           <div className="flex items-center gap-x-3">
@@ -71,9 +71,7 @@ const Page = async () => {
         </div>
 
         <div className="h-screen flex flex-col md:flex-row  space-x-2 gap-y-3">
-          <div className="w-full  h-1/2 ">
-            <ChartExample />
-          </div>
+         
           <div>
             <h1 className="font-bold text-[30px] text-primary">Investments</h1>
             <div className="flex text-lg bg-green-50 p-7 ring-2 ring-primary mt-4 items-center w-full md:w-[400px]">

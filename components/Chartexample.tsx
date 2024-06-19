@@ -1,41 +1,55 @@
+
 'use client'
 import React from 'react';
 import {Line} from 'react-chartjs-2'
-import {Chart as ChartJS,CategoryScale,LinearScale,PointElement,LineElement, Title,Tooltip,Legend } from 'chart.js'
-ChartJS.register(
-  CategoryScale,LinearScale, PointElement,LineElement, Title,Tooltip,Legend
-)
+import {Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend} from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 // React Chart Component
-const ChartExample = () => {
- const options = {
+const ChartExample = ({productDetails}:any) => {
+  const { timegraph } = productDetails;
 
- }
- const chartdata = {
-  labels:[
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-  
-  ],
- 
- datasets:[
-  {
-    label:'Months',
-    data:[1000,2000,1500,2000,5000,2500,3000,2400,1400,2000],
-    borderColor:'#E94908'
-  }
- ]
- }
-return(
-  <Line options={options}  data={chartdata}  />
-)
-}
+  // Define the chart options
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Product Time Graph',
+      },
+    },
+  };
+
+  // Define the chart data
+  const chartdata = {
+    labels: timegraph.map((time:{
+      lat:string;
+      lng:string;
+    }) => time.lat), // Assuming 'lat' is a property in timegraph for labels
+    datasets: [
+      {
+        label: 'Values', // Change this label as per your data context
+        data: timegraph.map((time:{
+          lat:string;
+          lng:string;
+
+        }) => time.lng), // Assuming 'lng' is a property in timegraph for data
+        borderColor: '#E94908',
+        backgroundColor: 'rgba(233, 73, 8, 0.2)', // Adding background color for better visibility
+        fill: true,
+      },
+    ],
+  };
+
+  return (
+    <Line options={options} data={chartdata} />
+  );
+};
+
 // Render component inside root element
-export default ChartExample
+export default ChartExample;

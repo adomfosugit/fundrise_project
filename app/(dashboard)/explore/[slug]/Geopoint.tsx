@@ -1,10 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from "react";
-import { MapContainer, Marker, Popup, TileLayer, useMap,Circle } from 'react-leaflet'
-
-
 import mapboxgl from "mapbox-gl";
-import { Card, CardContent } from "@/components/ui/card";
+
 
 
 
@@ -33,17 +30,10 @@ const Geopoint = ({productDetails}: any) => {
 
       });
 
-      
-      
-      // Add your custom markers and lines here
       const marker = new mapboxgl.Marker(
       )
             .setLngLat([coordinates.lng, coordinates.lat])
             .addTo(map);
-      
-   
-      
-      // Clean up on unmount
       return () => map.remove();
     }
   }, []);

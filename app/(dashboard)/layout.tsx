@@ -31,7 +31,7 @@ export default function RootLayout({
         <LeftSidebar />
 
         </div>
-         <section className="h-full flex w-full" >
+         <section className="h-full flex w-full pt-[30px]" >
             <Toaster />
             {children}
          </section>
