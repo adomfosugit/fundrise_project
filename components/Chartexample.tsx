@@ -16,12 +16,14 @@ const ChartExample = ({productDetails}:any) => {
     plugins: {
       legend: {
         display: true,
-        position: 'top',
+        position: 'bottom',
       },
       title: {
         display: true,
-        text: 'Product Time Graph',
+        text: 'Land Value',
+        
       },
+
     },
   };
 
@@ -47,7 +49,10 @@ const ChartExample = ({productDetails}:any) => {
   };
 
   return (
-    <Line options={options} data={chartdata} />
+    <div>
+
+      <Line options={options} data={chartdata} />
+    </div>
   );
 };
 

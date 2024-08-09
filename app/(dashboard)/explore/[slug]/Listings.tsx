@@ -71,7 +71,8 @@ const Listings = ({productDetails}: any) => {
 const {name,price,image,marketvalue,Liquidity,description,availableslots} = productDetails;
 
   return (
-    <div className=' flex flex-col md:flex-row p-3 gap-x-2  px-1 md:px-20' >
+    <div className='max-w-6xl mx-auto'>
+    <div className=' flex flex-col md:flex-row p-3 gap-x-2  px-1 md:px-2 ' >
         <div className='ring-2 ring-primary mb-1'>
         <Card className='w-full   mx-auto '>
   
@@ -138,7 +139,7 @@ const {name,price,image,marketvalue,Liquidity,description,availableslots} = prod
         </div>
 
     </div>
-   
+   </div>
   )
 }
 

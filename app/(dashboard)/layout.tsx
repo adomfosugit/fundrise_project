@@ -5,8 +5,9 @@ import LeftSidebar from "@/components/LeftSidebar";
 import Bottombar from "@/components/Bottombar";
 import { ClerkProvider } from "@clerk/nextjs";
 import MobileNav from "@/components/MobileNav";
-import 'mapbox-gl/dist/mapbox-gl.css'
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,25 +23,34 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <div className="flex flex-col ">
+            <div className="flex flex-grow ">
+              {/* Sidebar: Hidden on small screens, shown on larger screens */}
+              <div className="hidden md:flex md:w-[250px] flex-none">
+                <LeftSidebar />
+              </div>
 
-    <html lang="en">
-      <body className={inter.className}>
-       <div className = 'w-full md:flex  bg-gray-50'>
-        <div>
-        <MobileNav />
-        <LeftSidebar />
+              {/* Mobile Navigation: Shown only on small screens */}
+              <div className="md:hidden">
+                <MobileNav />
+              </div>
 
-        </div>
-         <section className="h-full flex w-full pt-[30px]" >
-            <Toaster />
-            {children}
-         </section>
-     
-       </div>      
+              {/* Main Content Area */}
+              <section className="flex-grow w-full pt-[30px] ">
+                <Toaster />
+              
+
+                {children}
+              
+              </section>
+            </div>
+
+          
+          </div>
         </body>
-    </html>
-
+      </html>
     </ClerkProvider>
   );
 }
-

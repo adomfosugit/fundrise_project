@@ -33,7 +33,7 @@ const CardList = ({productDetails}: any) => {
   console.log(productDetails)
   const {name,price,image,location, availableslots} = productDetails;
   return (
-    <Card className='w-[320px] md:w-[350px] relative m-3 ring-2 ring-primary'>
+    <Card className='w-[320px] md:w-[350px] relative m-4 ring-2 ring-primary'>
   
     <CardContent className='w-full h-[200px]'>
     <Carousel >
